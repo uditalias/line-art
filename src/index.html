@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .demo-1 {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 1;
+        }
+
+        .actions {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            padding: 16px;
+        }
+
+        .actions button+button,
+        .actions button+input {
+            margin-left: 10px;
+        }
+
+        h1 {
+            font-size: 72px;
+            padding: 0;
+            margin: 0;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 36px;
+            padding: 0;
+            margin: 0 0 12px;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-weight: 400;
+            font-size: 24px;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-1">
+        <div class="content">
+            <h1>👨‍🎨</h1>
+            <h2>Line Art</h2>
+            <h3>beautifully crafted SVG animations</h3>
+        </div>
+    </div>
+    <div class="actions">
+        <button id="pause">Pause</button>
+        <button id="play">Play</button>
+        <button id="add">Add Line</button>
+        <button id="remove">Remove Line</button>
+        <input type="number" id="count" />
+    </div>
+</body>
+
+</html>

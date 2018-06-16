@@ -1,0 +1,33 @@
+{
+  "name": "line-art",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development",
+    "build": "wepack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uditalias/line-art.git"
+  },
+  "keywords": [],
+  "author": "Udi Talias <udi.talias@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uditalias/line-art/issues"
+  },
+  "homepage": "https://github.com/uditalias/line-art#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.6",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
