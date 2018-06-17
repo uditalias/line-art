@@ -1,5 +1,7 @@
 # Line Art
 
+# <img src='https://raw.githubusercontent.com/uditalias/line-art/master/assets/line-art.png' alt='Line Art' />
+
 ### Beautifully crafted SVG animations 👨‍🎨
 
 ![line-art](https://img.shields.io/npm/v/line-art.svg?style=flat-square)
