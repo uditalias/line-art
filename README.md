@@ -7,7 +7,7 @@
 
 
 ## Demo
-A working [demo]("https://uditalias.github.io/line-art/")
+A working [demo](https://uditalias.github.io/line-art/)
 
 
 ## Install
