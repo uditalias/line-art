@@ -18,7 +18,7 @@ let art = LineArt.create(options);
 $pauseBtn.addEventListener("click", () => art.pause(), false);
 $playBtn.addEventListener("click", () => art.play(), false);
 $addShapeBtn.addEventListener("click", () => art.addShape(), false);
-$removeShapeBtn.addEventListener("click", art.removeShape(), false);
+$removeShapeBtn.addEventListener("click", () => art.removeShape(), false);
 
 $restartBtn.addEventListener("click", () => {
     LineArt.destroy(art);
