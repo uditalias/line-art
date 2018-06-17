@@ -1,6 +1,6 @@
 # Line Art
 
-# <img src='https://raw.githubusercontent.com/uditalias/line-art/master/assets/line-art.png' alt='Line Art' />
+# <img src='https://raw.githubusercontent.com/uditalias/line-art/master/assets/lineart.png' alt='Line Art' />
 
 ### Beautifully crafted SVG animations 👨‍🎨
 
