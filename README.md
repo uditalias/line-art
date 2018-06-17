@@ -55,6 +55,13 @@ Create a line art with the given options.
 
 Destroy and dispose a given art resources.
 
+## Todo
+
+- [ ] Add tests
+- [ ] Add ts typings
+- [ ] Add more examples
+- [ ] Add more docs
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
