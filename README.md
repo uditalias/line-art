@@ -1,4 +1,4 @@
-# line-art
+# Line Art
 
 ### Beautifully crafted SVG animations 👨‍🎨
 
