@@ -6,6 +6,10 @@
 [![Travis](https://img.shields.io/travis/uditalias/line-art.svg?style=flat-square)](https://travis-ci.org/uditalias/line-art)
 
 
+## Demo
+A working [demo]("https://uditalias.github.io/line-art/")
+
+
 ## Install
 Install via npm with
 ```sh
