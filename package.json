@@ -11,6 +11,7 @@
     "build:umd:min": "cross-env NODE_ENV=production webpack --bail",
     "build": "npm run clean && npm update && npm run build:lib && npm run build:umd && npm run build:umd:min",
     "example": "webpack-dev-server --content-base example/ --config example/webpack.config.js --mode development",
+    "example:build": "cross-env NODE_ENV=production webpack --config example/webpack.config.js --mode production",
     "test": "jest",
     "test:watch": "jest --watch --verbose",
     "prepublish": "npm test && npm run build",

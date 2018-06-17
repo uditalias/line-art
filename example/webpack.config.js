@@ -1,6 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
-module.exports = {
+const config = {
 
     entry: "./example/index.js",
 
@@ -39,3 +40,11 @@ module.exports = {
 
     devtool: 'source-map'
 };
+
+if (process.env.NODE_ENV === "production") {
+    config.output = {
+        path: path.resolve(__dirname, "../docs")
+    };
+}
+
+module.exports = config;
