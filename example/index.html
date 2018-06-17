@@ -6,16 +6,29 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
 
     <style>
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
         }
 
         .demo-1 {
             position: relative;
-            width: 100vw;
+            width: 100%;
             height: 100vh;
         }
 
@@ -36,7 +49,6 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 100%;
             z-index: 2;
             padding: 16px;
         }
@@ -44,6 +56,15 @@
         .actions button+button,
         .actions button+input {
             margin-left: 10px;
+        }
+
+        button,
+        input {
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 2px;
+            border: none;
+            font-size: 16px;
         }
 
         h1 {
@@ -67,22 +88,43 @@
             padding: 0;
             margin: 0;
         }
+
+        code {
+            margin-top: 15px;
+            background-color: #424242;
+            padding: 5px;
+            color: #efefef;
+            border-radius: 2px;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 0;
+            z-index: 3;
+        }
     </style>
 </head>
 
 <body>
+    <a href="https://github.com/uditalias/line-art" target="_blank">
+        <img class="ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
     <div class="demo-1">
         <div class="content">
             <h1>👨‍🎨</h1>
             <h2>Line Art</h2>
             <h3>beautifully crafted SVG animations</h3>
+            <code>npm i --save line-art</code>
         </div>
     </div>
     <div class="actions">
         <button id="pause">Pause</button>
         <button id="play">Play</button>
-        <button id="add">Add Line</button>
-        <button id="remove">Remove Line</button>
+        <button id="add">Add Shape</button>
+        <button id="remove">Remove Shape</button>
+        <button id="restart">Restart</button>
         <input type="number" id="count" />
     </div>
 </body>

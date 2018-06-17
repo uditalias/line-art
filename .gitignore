@@ -1,4 +1,9 @@
-.idea
-.vscode
-node_modules
-*.log
+.DS_Store
+.vscode/
+.idea/
+node_modules/
+lib/
+dist/
+coverage/
+
+npm-*.log
