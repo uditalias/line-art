@@ -57,6 +57,46 @@ Create a line art with the given options.
 
 Destroy and dispose a given art resources.
 
+## Create your custom shape
+
+If you want, you can control the animated shapes by creating your own shape and provide it from a shape factory.  
+All you need to do is inherit from the `Shape` class and implement the `createElement` method.  
+Here is an example:
+
+```javascript
+// Circle.js
+import { Shape, SVG_NS } from "line-art";
+
+export default class Circle extends Shape {
+    createElement() {
+        // the `createElement` method is called after the initialization of your shape
+        // you can access the data by...
+        const { width, height, rotateDoration, translateDoration, color, x, y, rotate, cx, cy } = this.getDataProp();
+        // or
+        const shapeWidth = this.getDataProp("width");
+        const shapeHeight = this.getDataProp("height");
+
+        // then, create SVG element and ref it to `this._element`
+        this._element = document.createElementNS(SVG_NS, "circle");
+
+        this._element.setAttribute("cx", cx);
+        this._element.setAttribute("cy", cy);
+        this._element.setAttribute("r", height / 2);
+
+        this.setSize(width, height);
+
+        this.setFillColor(color);
+    }
+}
+
+// In your options, override the `shapeFactory`
+LineArt.create({
+    ...
+    shapeFactory: (options) => new Circle(options),
+    ...
+})
+```
+
 ## Todo
 
 - [ ] Add tests

@@ -1,6 +1,6 @@
 import LineArt from "./LineArt";
 import Shape from "./Shape";
-import { getRandomColor } from "./utils";
+import { getRandomColor, SVG_NS } from "./utils";
 
 export default LineArt;
-export { Shape, getRandomColor };
+export { Shape, getRandomColor, SVG_NS };
