@@ -1,6 +1,6 @@
 {
   "name": "line-art",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Beautifully crafted SVG animations",
   "main": "lib/index.js",
   "typings": "lineart.d.ts",

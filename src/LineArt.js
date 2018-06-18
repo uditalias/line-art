@@ -1,6 +1,7 @@
 import { SVG_NS, random, bindToContext } from "./utils";
 import { defaultOptions } from "./defaults";
 import Stage from "./Stage";
+import optionsBuilder from "./OptionsBuilder";
 
 const autobindMethods = ["_onWindowResize", "_tick", "pause", "play", "addShape", "scrumble", "removeShape", "setOption", "destroy"];
 
@@ -21,71 +22,14 @@ export default class LineArt {
     }
 
     constructor(options) {
-        this._options = Object.assign({}, defaultOptions, options);
-        this._container = options.container;
+        this._options = optionsBuilder(options);
+        this._container = this._options.container;
         this._containerRect = this._container.getBoundingClientRect();
         this._isPlaying = false;
         this._rafId = 0;
         this._prevFrame = 0;
 
         this._configure();
-    }
-
-    _configure() {
-        bindToContext(autobindMethods, this);
-
-        this._createStage();
-
-        this.addShapes(this._options.count);
-
-        this._bindEvents();
-
-        if (this._options.autoPlay) {
-            this.play();
-        }
-    }
-
-    _bindEvents() {
-        window.addEventListener("resize", this._onWindowResize, { passive: true });
-    }
-
-    _onWindowResize() {
-        window.requestAnimationFrame(() => {
-            this._containerRect = this._container.getBoundingClientRect();
-            const { width, height } = this._containerRect;
-            this._stage.setViewBox(width, height);
-        });
-    }
-
-    _createStage() {
-        const { width, height } = this._containerRect;
-
-        this._stage = new Stage({ width, height, bgColor: this._options.bgColor });
-
-        this._container.appendChild(this._stage.$);
-    }
-
-    _createRandomShape() {
-        const width = this._getRandomByRange(this._options.shapeWidthRange)
-            , height = this._getRandomByRange(this._options.shapeHeightRange)
-            , color = this._options.getColor()
-            , rotateDoration = this._getRandomDurationMiliseconds()
-            , translateDoration = this._getRandomDurationMiliseconds()
-            , x = random(0 - width, this._containerRect.width)
-            , y = random(0 - height, this._containerRect.height)
-            , rotate = random(0, 360);
-
-        this._stage.addShape(this._options.shapeFactory({
-            width, height, x, y, rotate, rotateDoration, translateDoration, color
-        }));
-    }
-
-    _getRandomDurationMiliseconds() {
-        return this._getRandomByRange(this._options.animDurationRange) * 1000;
-    }
-
-    _getRandomByRange(range) {
-        return random.apply(null, range);
     }
 
     addShape() {
@@ -113,7 +57,11 @@ export default class LineArt {
     }
 
     setOption(key, value) {
-        this._options[key] = value;
+        try {
+            this._options.setOption(key, value);
+        } catch (e) {
+            console.error(e);
+        }
 
         if (key === "bgColor") {
             this._stage.setBackgroundColor(value);
@@ -156,6 +104,63 @@ export default class LineArt {
         this._container.removeChild(this._stage.$);
 
         window.removeEventListener("resize", this._onWindowResize);
+    }
+
+    _configure() {
+        bindToContext(autobindMethods, this);
+
+        this._createStage();
+
+        this._bindEvents();
+
+        this.addShapes(this._options.count);
+
+        if (this._options.autoPlay) {
+            this.play();
+        }
+    }
+
+    _bindEvents() {
+        window.addEventListener("resize", this._onWindowResize, { passive: true });
+    }
+
+    _onWindowResize() {
+        window.requestAnimationFrame(() => {
+            this._containerRect = this._container.getBoundingClientRect();
+            const { width, height } = this._containerRect;
+            this._stage.setViewBox(width, height);
+        });
+    }
+
+    _createStage() {
+        const { width, height } = this._containerRect;
+
+        this._stage = new Stage({ width, height, bgColor: this._options.bgColor });
+
+        this._container.appendChild(this._stage.$);
+    }
+
+    _createRandomShape() {
+        const width = this._getRandomByRange(this._options.shapeWidthRange)
+            , height = this._getRandomByRange(this._options.shapeHeightRange)
+            , color = this._options.colorFactory()
+            , rotateDoration = this._getRandomDurationMiliseconds()
+            , translateDoration = this._getRandomDurationMiliseconds()
+            , x = random(0 - width, this._containerRect.width)
+            , y = random(0 - height, this._containerRect.height)
+            , rotate = random(0, 360);
+
+        this._stage.addShape(this._options.shapeFactory({
+            width, height, x, y, rotate, rotateDoration, translateDoration, color
+        }));
+    }
+
+    _getRandomDurationMiliseconds() {
+        return this._getRandomByRange(this._options.animDurationRange) * 1000;
+    }
+
+    _getRandomByRange(range) {
+        return random.apply(null, range);
     }
 
     _tick(frame) {

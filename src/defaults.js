@@ -9,7 +9,7 @@ export const defaultOptions = {
     container: document.body,
     count: 50,
     shapeFactory: defaultShapeFactory,
-    getColor: getRandomColor,
+    colorFactory: getRandomColor,
     autoPlay: true,
     animDurationRange: [5, 25],
     shapeWidthRange: [50, 100],

@@ -37,7 +37,7 @@ Create a line art with the given options.
  container: document.body,
     count: 50,
     shapeFactory: defaultShapeFactory,
-    getColor: getRandomColor,
+    colorFactory: getRandomColor,
     autoPlay: true,
     animDurationRange: [5, 25],
     shapeWidthRange: [50, 100],
@@ -47,7 +47,7 @@ Create a line art with the given options.
 | - | - | - | - | - |
 | container | DOM Element | true | - | the art container |
 | shapeFactory | Function | false | `{ shapeFactory } from "src/defaults"` | override this function if you want to control the art shapes, see `src/defatuls.js` for example |
-| getColor | Function | false | `{ getRandomColor } from "src/utils"` | a function to generate a shape color` |
+| colorFactory | Function | false | `{ getRandomColor } from "src/utils"` | a function to generate a shape color` |
 | autoPlay | Boolean | false | true | should the animation start playing once art created |
 | animDurationRange | Array | false | [5, 25] | array of min and max values for animation duration |
 | shapeWidthRange | Array | false | [50, 100] | array of min and max values for shape width |
@@ -60,6 +60,7 @@ Destroy and dispose a given art resources.
 ## Todo
 
 - [ ] Add tests
+- [X] Add options validator
 - [ ] Add ts typings
 - [ ] Add more examples
 - [ ] Add more docs
