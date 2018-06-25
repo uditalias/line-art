@@ -1,8 +1,8 @@
-# Line Art
+# Line Art 👨‍🎨
 
 # <img src='https://raw.githubusercontent.com/uditalias/line-art/master/assets/lineart.png' alt='Line Art' />
 
-### Beautifully crafted SVG animations 👨‍🎨
+### Beautifully crafted SVG animations
 
 ![line-art](https://img.shields.io/npm/v/line-art.svg?style=flat-square)
 [![Travis](https://img.shields.io/travis/uditalias/line-art.svg?style=flat-square)](https://travis-ci.org/uditalias/line-art)
@@ -33,15 +33,6 @@ let art = LineArt.create({
 **LineArt.create(options)**
 
 Create a line art with the given options.
-
- container: document.body,
-    count: 50,
-    shapeFactory: defaultShapeFactory,
-    colorFactory: getRandomColor,
-    autoPlay: true,
-    animDurationRange: [5, 25],
-    shapeWidthRange: [50, 100],
-    shapeHeightRange: [5, 10]
 
 | Name | Type | Required | Default | Description |
 | - | - | - | - | - |
